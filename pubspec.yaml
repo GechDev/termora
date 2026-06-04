@@ -1,0 +1,15 @@
+name: termora
+description: A declarative, widget-driven Terminal UI framework for Dart, built for interactive command-line applications.
+version: 0.1.0
+homepage: https://github.com/termora/termora
+repository: https://github.com/termora/termora
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  meta: ^1.11.0
+
+dev_dependencies:
+  lints: ^3.0.0
+  test: ^1.24.0
