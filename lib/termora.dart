@@ -11,6 +11,7 @@ export 'src/core/widget.dart';
 // Layout & Geometry
 export 'src/layout/box_constraints.dart';
 export 'src/layout/edge_insets.dart';
+export 'src/layout/flex_layout.dart';
 export 'src/layout/geometry.dart';
 
 // Rendering & Output Engine
@@ -30,8 +31,12 @@ export 'src/style/modifier.dart';
 export 'src/style/style.dart';
 
 // Widgets
+export 'src/widgets/align.dart';
 export 'src/widgets/basic.dart';
+export 'src/widgets/constrained_box.dart';
 export 'src/widgets/container.dart';
+export 'src/widgets/flex.dart';
+export 'src/widgets/flexible.dart';
 
 /// The current version of Termora.
 const String termoraVersion = '0.1.0';
