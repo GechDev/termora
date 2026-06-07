@@ -56,6 +56,12 @@ class BoxConstraints {
   bool get hasTightHeight => minHeight >= maxHeight;
   bool get isTight => hasTightWidth && hasTightHeight;
 
+  /// The smallest size that satisfies these constraints.
+  Size get smallest => Size(minWidth, minHeight);
+
+  /// The biggest size that satisfies these constraints.
+  Size get biggest => Size(maxWidth, maxHeight);
+
   /// Returns the closest size within these constraints.
   Size constrain(Size size) {
     return Size(
@@ -81,6 +87,21 @@ class BoxConstraints {
       maxWidth: math.max(0, maxWidth - horizontal),
       minHeight: math.max(0, minHeight - vertical),
       maxHeight: math.max(0, maxHeight - vertical),
+    );
+  }
+
+  /// Returns new box constraints that respect both these constraints and the [other] constraints.
+  BoxConstraints enforce(BoxConstraints other) {
+    final newMinW = math.max(minWidth, other.minWidth);
+    final newMaxW = math.max(newMinW, math.min(maxWidth, other.maxWidth));
+    final newMinH = math.max(minHeight, other.minHeight);
+    final newMaxH = math.max(newMinH, math.min(maxHeight, other.maxHeight));
+
+    return BoxConstraints(
+      minWidth: newMinW,
+      maxWidth: newMaxW,
+      minHeight: newMinH,
+      maxHeight: newMaxH,
     );
   }
 
