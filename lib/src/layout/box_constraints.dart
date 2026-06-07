@@ -62,6 +62,9 @@ class BoxConstraints {
   /// The biggest size that satisfies these constraints.
   Size get biggest => Size(maxWidth, maxHeight);
 
+  /// Returns new constraints with minWidth and minHeight set to 0.
+  BoxConstraints loosen() => BoxConstraints(maxWidth: maxWidth, maxHeight: maxHeight);
+
   /// Returns the closest size within these constraints.
   Size constrain(Size size) {
     return Size(
