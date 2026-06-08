@@ -1,4 +1,5 @@
 import 'build_context.dart';
+import 'inherited_widget.dart';
 import 'widget.dart';
 
 /// An instantiation of a [Widget] at a particular location in the tree.
@@ -92,6 +93,19 @@ abstract class Element implements BuildContext {
     return newChild;
   }
 
+  @override
+  T? dependOnInheritedWidgetOfExactType<T extends InheritedWidget>() {
+    var ancestor = _parent;
+    while (ancestor != null) {
+      if (ancestor is InheritedElement && ancestor.widget is T) {
+        ancestor.addDependent(this);
+        return ancestor.widget as T;
+      }
+      ancestor = ancestor.parent;
+    }
+    return null;
+  }
+
   /// Visits immediate children of this element.
   void visitChildren(void Function(Element element) visitor);
 }
@@ -145,7 +159,8 @@ class StatelessElement extends ComponentElement {
 class StatefulElement extends ComponentElement {
   final State<StatefulWidget> state;
 
-  StatefulElement(StatefulWidget super.widget) : state = widget.createState();
+  StatefulElement(StatefulWidget super.widget)
+      : state = widget.createState();
 
   @override
   StatefulWidget get widget => super.widget as StatefulWidget;
