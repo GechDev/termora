@@ -57,6 +57,36 @@ class BorderChars {
     horizontal: '═',
     vertical: '║',
   );
+
+  /// Heavy / bold Unicode box drawing border (`┏`, `┓`, `┗`, `┛`, `━`, `┃`).
+  static const BorderChars heavy = BorderChars(
+    topLeft: '┏',
+    topRight: '┓',
+    bottomLeft: '┗',
+    bottomRight: '┛',
+    horizontal: '━',
+    vertical: '┃',
+  );
+
+  /// Dotted Unicode box drawing border.
+  static const BorderChars dotted = BorderChars(
+    topLeft: '┌',
+    topRight: '┐',
+    bottomLeft: '└',
+    bottomRight: '┘',
+    horizontal: '╌',
+    vertical: '╎',
+  );
+
+  /// Dashed Unicode box drawing border.
+  static const BorderChars dashed = BorderChars(
+    topLeft: '┌',
+    topRight: '┐',
+    bottomLeft: '└',
+    bottomRight: '┘',
+    horizontal: '╍',
+    vertical: '╏',
+  );
 }
 
 /// Represents the visual border surrounding a container.
@@ -84,6 +114,18 @@ class Border {
   /// Double-line Unicode box border.
   const Border.double([Style style = Style.none])
       : this(chars: BorderChars.double, style: style);
+
+  /// Heavy / bold Unicode box border.
+  const Border.heavy([Style style = Style.none])
+      : this(chars: BorderChars.heavy, style: style);
+
+  /// Dotted Unicode box border.
+  const Border.dotted([Style style = Style.none])
+      : this(chars: BorderChars.dotted, style: style);
+
+  /// Dashed Unicode box border.
+  const Border.dashed([Style style = Style.none])
+      : this(chars: BorderChars.dashed, style: style);
 
   @override
   bool operator ==(Object other) =>
