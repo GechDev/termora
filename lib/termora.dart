@@ -5,6 +5,7 @@ library termora;
 export 'src/core/app.dart';
 export 'src/core/build_context.dart';
 export 'src/core/element.dart';
+export 'src/core/inherited_widget.dart';
 export 'src/core/key.dart';
 export 'src/core/widget.dart';
 
@@ -24,11 +25,13 @@ export 'src/rendering/screen_buffer.dart';
 export 'src/rendering/terminal_manager.dart';
 export 'src/rendering/unicode_width.dart';
 
-// Styling, Borders & Colors
+// Styling, Themes, Borders & Colors
 export 'src/style/border.dart';
 export 'src/style/color.dart';
 export 'src/style/modifier.dart';
+export 'src/style/palette.dart';
 export 'src/style/style.dart';
+export 'src/style/theme.dart';
 
 // Widgets
 export 'src/widgets/align.dart';
@@ -37,6 +40,7 @@ export 'src/widgets/constrained_box.dart';
 export 'src/widgets/container.dart';
 export 'src/widgets/flex.dart';
 export 'src/widgets/flexible.dart';
+export 'src/widgets/rich_text.dart';
 
 /// The current version of Termora.
 const String termoraVersion = '0.1.0';
