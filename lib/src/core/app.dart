@@ -3,7 +3,6 @@ import 'dart:async';
 import '../input/ansi_parser.dart';
 import '../input/event.dart';
 import '../input/focus_manager.dart';
-import '../input/key_code.dart';
 import '../layout/box_constraints.dart';
 import '../layout/geometry.dart';
 import '../rendering/backend.dart';

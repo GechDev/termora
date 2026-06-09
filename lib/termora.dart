@@ -9,6 +9,13 @@ export 'src/core/inherited_widget.dart';
 export 'src/core/key.dart';
 export 'src/core/widget.dart';
 
+// Input, Keyboard & Focus
+export 'src/input/ansi_parser.dart';
+export 'src/input/event.dart';
+export 'src/input/focus_manager.dart';
+export 'src/input/focus_node.dart';
+export 'src/input/key_code.dart';
+
 // Layout & Geometry
 export 'src/layout/box_constraints.dart';
 export 'src/layout/edge_insets.dart';
