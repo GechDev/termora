@@ -2,7 +2,6 @@ import 'dart:math' as math;
 
 import '../core/build_context.dart';
 import '../core/element.dart';
-import '../core/widget.dart';
 import '../layout/geometry.dart';
 import '../rendering/render_object.dart';
 import '../rendering/unicode_width.dart';

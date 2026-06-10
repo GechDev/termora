@@ -42,7 +42,8 @@ class FocusManager {
   void nextFocus() {
     if (_nodes.isEmpty) return;
 
-    final currentIndex = _primaryFocus != null ? _nodes.indexOf(_primaryFocus!) : -1;
+    final currentIndex =
+        _primaryFocus != null ? _nodes.indexOf(_primaryFocus!) : -1;
     for (var i = 1; i <= _nodes.length; i++) {
       final nextIndex = (currentIndex + i) % _nodes.length;
       final candidate = _nodes[nextIndex];
@@ -57,7 +58,8 @@ class FocusManager {
   void previousFocus() {
     if (_nodes.isEmpty) return;
 
-    final currentIndex = _primaryFocus != null ? _nodes.indexOf(_primaryFocus!) : 0;
+    final currentIndex =
+        _primaryFocus != null ? _nodes.indexOf(_primaryFocus!) : 0;
     for (var i = 1; i <= _nodes.length; i++) {
       final prevIndex = (currentIndex - i + _nodes.length) % _nodes.length;
       final candidate = _nodes[prevIndex];

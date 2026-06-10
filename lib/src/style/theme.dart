@@ -1,6 +1,5 @@
 import '../core/build_context.dart';
 import '../core/inherited_widget.dart';
-import '../core/widget.dart';
 import 'border.dart';
 import 'color.dart';
 

@@ -21,7 +21,8 @@ class ThemedCard extends StatelessWidget {
     final theme = Theme.of(context);
     return Container(
       border: theme.defaultBorder,
-      child: Text('Themed Text', style: Style(foregroundColor: theme.primaryColor)),
+      child: Text('Themed Text',
+          style: Style(foregroundColor: theme.primaryColor)),
     );
   }
 }

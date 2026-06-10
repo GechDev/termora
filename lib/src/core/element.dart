@@ -159,8 +159,7 @@ class StatelessElement extends ComponentElement {
 class StatefulElement extends ComponentElement {
   final State<StatefulWidget> state;
 
-  StatefulElement(StatefulWidget super.widget)
-      : state = widget.createState();
+  StatefulElement(StatefulWidget super.widget) : state = widget.createState();
 
   @override
   StatefulWidget get widget => super.widget as StatefulWidget;

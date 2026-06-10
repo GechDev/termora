@@ -43,11 +43,16 @@ export 'src/style/theme.dart';
 // Widgets
 export 'src/widgets/align.dart';
 export 'src/widgets/basic.dart';
+export 'src/widgets/button.dart';
 export 'src/widgets/constrained_box.dart';
 export 'src/widgets/container.dart';
 export 'src/widgets/flex.dart';
 export 'src/widgets/flexible.dart';
+export 'src/widgets/menu.dart';
+export 'src/widgets/progress_bar.dart';
 export 'src/widgets/rich_text.dart';
+export 'src/widgets/table.dart';
+export 'src/widgets/text_field.dart';
 
 /// The current version of Termora.
 const String termoraVersion = '0.1.0';

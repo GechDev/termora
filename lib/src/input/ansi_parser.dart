@@ -67,7 +67,11 @@ class AnsiInputParser {
       }
 
       // Control characters (Ctrl + A..Z: 1..26)
-      if (first >= 1 && first <= 26 && first != 9 && first != 10 && first != 13) {
+      if (first >= 1 &&
+          first <= 26 &&
+          first != 9 &&
+          first != 10 &&
+          first != 13) {
         final char = String.fromCharCode(first + 96);
         events.add(KeyEvent(
           code: KeyCode.character,

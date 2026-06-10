@@ -1,7 +1,9 @@
 import '../core/build_context.dart';
 import '../core/element.dart';
 import '../core/widget.dart';
+import '../layout/box_constraints.dart';
 import '../layout/flex_layout.dart';
+import '../layout/geometry.dart';
 import '../rendering/render_object.dart';
 import 'flex.dart';
 
@@ -177,16 +179,14 @@ class SizedBox extends RenderObjectWidget {
   const SizedBox({super.key, this.width, this.height, this.child});
 
   /// Creates a box that will become as large as its parent allows.
-  const SizedBox.expand({super.key, Widget? child})
+  const SizedBox.expand({super.key, this.child})
       : width = null,
-        height = null,
-        child = child;
+        height = null;
 
   /// Creates a box with zero width and height.
-  const SizedBox.shrink({super.key, Widget? child})
+  const SizedBox.shrink({super.key, this.child})
       : width = 0,
-        height = 0,
-        child = child;
+        height = 0;
 
   @override
   RenderSizedBox createRenderObject(BuildContext context) {

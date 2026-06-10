@@ -231,7 +231,8 @@ class RenderFlex extends RenderObject {
   void performLayout() {
     final isHorizontal = _direction == Axis.horizontal;
     final maxMain = isHorizontal ? constraints.maxWidth : constraints.maxHeight;
-    final maxCross = isHorizontal ? constraints.maxHeight : constraints.maxWidth;
+    final maxCross =
+        isHorizontal ? constraints.maxHeight : constraints.maxWidth;
 
     var totalFlex = 0;
     var usedMainSpace = 0;

@@ -93,14 +93,16 @@ void main() {
       expect(node2.hasFocus, isTrue);
 
       // Press Shift+Tab -> node1
-      manager.dispatchKeyEvent(const KeyEvent(code: KeyCode.tab, isShift: true));
+      manager
+          .dispatchKeyEvent(const KeyEvent(code: KeyCode.tab, isShift: true));
       expect(node1.hasFocus, isTrue);
       expect(node2.hasFocus, isFalse);
     });
   });
 
   group('TermoraApp Key Dispatch', () {
-    test('routes key events to focused stateful widget and updates rendering', () {
+    test('routes key events to focused stateful widget and updates rendering',
+        () {
       final backend = VirtualTerminalBackend(width: 15, height: 1);
       final focusNode = FocusNode();
       final app = TermoraApp(

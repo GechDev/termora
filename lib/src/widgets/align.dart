@@ -76,8 +76,7 @@ class Align extends RenderObjectWidget {
 
 /// A widget that centers its child within itself.
 class Center extends Align {
-  const Center({super.key, super.child})
-      : super(alignment: Alignment.center);
+  const Center({super.key, super.child}) : super(alignment: Alignment.center);
 }
 
 /// Element for [Align] and [Center].

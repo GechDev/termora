@@ -70,9 +70,7 @@ final class ResizeEvent extends TerminalEvent {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      (other is ResizeEvent &&
-          other.width == width &&
-          other.height == height);
+      (other is ResizeEvent && other.width == width && other.height == height);
 
   @override
   int get hashCode => Object.hash(width, height);
