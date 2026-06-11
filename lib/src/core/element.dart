@@ -1,3 +1,4 @@
+import '../widgets/error_boundary.dart';
 import 'build_context.dart';
 import 'inherited_widget.dart';
 import 'widget.dart';
@@ -125,7 +126,12 @@ abstract class ComponentElement extends Element {
   @override
   void performRebuild() {
     clearDirty();
-    final built = build();
+    Widget built;
+    try {
+      built = build();
+    } catch (e, s) {
+      built = ErrorWidget.builder(e, s);
+    }
     _child = updateChild(_child, built);
   }
 
