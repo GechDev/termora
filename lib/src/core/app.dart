@@ -101,6 +101,23 @@ class TermoraApp {
     }
   }
 
+  /// Callback triggered when the terminal window dimensions change.
+  void Function(int width, int height)? onResize;
+
+  /// Handles a terminal resize event, resizing the buffer and re-laying out the tree.
+  void handleResize(int newWidth, int newHeight) {
+    if (_activeBackend is VirtualTerminalBackend) {
+      final vb = _activeBackend as VirtualTerminalBackend;
+      vb.width = newWidth;
+      vb.height = newHeight;
+    }
+    _doubleBuffer?.resize(newWidth, newHeight);
+    final rootRenderObject = _findFirstRenderObject(_rootElement);
+    rootRenderObject?.markNeedsLayout();
+    onResize?.call(newWidth, newHeight);
+    renderFrame(targetBackend: _activeBackend);
+  }
+
   /// Stops the interactive application loop and cleans up terminal resources.
   void stop() {
     if (!_running) return;
@@ -127,8 +144,7 @@ class TermoraApp {
 
       // Listen for window resize
       _manager.onResize = (newW, newH) {
-        _doubleBuffer?.resize(newW, newH);
-        renderFrame(targetBackend: ioBackend);
+        handleResize(newW, newH);
       };
 
       // Listen to raw input bytes and dispatch parsed key events
