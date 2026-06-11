@@ -51,6 +51,7 @@ export 'src/widgets/flexible.dart';
 export 'src/widgets/menu.dart';
 export 'src/widgets/progress_bar.dart';
 export 'src/widgets/rich_text.dart';
+export 'src/widgets/scroll_view.dart';
 export 'src/widgets/table.dart';
 export 'src/widgets/text_field.dart';
 
