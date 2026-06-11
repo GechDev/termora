@@ -46,6 +46,7 @@ export 'src/widgets/basic.dart';
 export 'src/widgets/button.dart';
 export 'src/widgets/constrained_box.dart';
 export 'src/widgets/container.dart';
+export 'src/widgets/error_boundary.dart';
 export 'src/widgets/flex.dart';
 export 'src/widgets/flexible.dart';
 export 'src/widgets/menu.dart';
