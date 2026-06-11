@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:convert' as convert;
 import 'dart:io' as io;
 
 import 'ansi.dart';
@@ -133,6 +134,26 @@ class IoTerminalBackend implements TerminalBackend {
   bool _isRawMode = false;
   bool _isDisposed = false;
 
+  IoTerminalBackend() {
+    _initEnvironment();
+  }
+
+  void _initEnvironment() {
+    try {
+      // Set UTF-8 encoding for unicode rendering fidelity
+      io.stdout.encoding = convert.utf8;
+    } catch (_) {}
+  }
+
+  /// Whether the current stdout environment supports ANSI escape sequences.
+  bool get supportsAnsiEscapes {
+    try {
+      return io.stdout.supportsAnsiEscapes;
+    } catch (_) {
+      return true;
+    }
+  }
+
   @override
   int get width {
     try {
@@ -162,7 +183,12 @@ class IoTerminalBackend implements TerminalBackend {
   }
 
   @override
-  void flush() {}
+  void flush() {
+    try {
+      // Best-effort flush without blocking
+      io.stdout.flush();
+    } catch (_) {}
+  }
 
   @override
   void enableRawMode() {
