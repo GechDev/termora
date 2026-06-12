@@ -1,4 +1,40 @@
-/// Termora is a declarative, widget-driven Terminal UI framework for Dart.
+/// # Termora: Declarative Terminal UI Framework for Dart
+///
+/// Termora provides a Flutter-inspired component model and rendering engine
+/// specifically engineered for command-line applications and interactive terminals.
+///
+/// ## Core Concepts
+///
+/// - **Component Model**: Build applications by composing [Widget]s into an immutable
+///   declarative tree. Subclass [StatelessWidget] for pure presentation or
+///   [StatefulWidget] to manage mutable state across rebuilds.
+/// - **Double-Buffered Renderer**: Differential updates via [DoubleBuffer] ensure
+///   only modified [Cell]s are flushed to stdout, minimizing terminal flicker.
+/// - **Box Constraints**: Integer-based layout geometry with [BoxConstraints],
+///   [Row], [Column], [Expanded], [Center], and [Padding].
+/// - **Input & Focus**: Low-level ANSI parser ([AnsiInputParser]) translating escape
+///   sequences to [KeyEvent]s dispatched across a hierarchy of [FocusNode]s.
+/// - **Terminal Safety**: The [TerminalManager] and [ErrorBoundary] ensure the terminal
+///   is cleanly restored even if unhandled exceptions occur.
+///
+/// ## Quick Start Example
+///
+/// ```dart
+/// import 'package:termora/termora.dart';
+///
+/// void main() async {
+///   final app = TermoraApp(
+///     child: Center(
+///       child: Container(
+///         border: const Border.rounded(),
+///         padding: const EdgeInsets.all(1),
+///         child: const Text('Hello, Termora!'),
+///       ),
+///     ),
+///   );
+///   await app.run();
+/// }
+/// ```
 library termora;
 
 // Core Application & Component Model
@@ -56,5 +92,5 @@ export 'src/widgets/scroll_view.dart';
 export 'src/widgets/table.dart';
 export 'src/widgets/text_field.dart';
 
-/// The current version of Termora.
+/// The current semantic version of the Termora package.
 const String termoraVersion = '0.1.0';
