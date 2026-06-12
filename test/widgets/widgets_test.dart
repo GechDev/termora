@@ -61,7 +61,8 @@ void main() {
       // Down arrow -> selects Option Two
       app.dispatchKeyEvent(const KeyEvent(code: KeyCode.arrowDown));
       app.renderFrame();
-      expect(app.doubleBuffer.current.toAsciiString(), contains('► Option Two'));
+      expect(
+          app.doubleBuffer.current.toAsciiString(), contains('► Option Two'));
 
       // Press Enter
       app.dispatchKeyEvent(const KeyEvent(code: KeyCode.enter));
@@ -70,7 +71,8 @@ void main() {
       // Down arrow again -> selects Option Three
       app.dispatchKeyEvent(const KeyEvent(code: KeyCode.arrowDown));
       app.renderFrame();
-      expect(app.doubleBuffer.current.toAsciiString(), contains('► Option Three'));
+      expect(
+          app.doubleBuffer.current.toAsciiString(), contains('► Option Three'));
     });
   });
 
@@ -95,9 +97,12 @@ void main() {
       expect(app.doubleBuffer.current.toAsciiString(), contains('Term'));
 
       // Append characters 'o', 'r', 'a'
-      app.dispatchKeyEvent(const KeyEvent(code: KeyCode.character, character: 'o'));
-      app.dispatchKeyEvent(const KeyEvent(code: KeyCode.character, character: 'r'));
-      app.dispatchKeyEvent(const KeyEvent(code: KeyCode.character, character: 'a'));
+      app.dispatchKeyEvent(
+          const KeyEvent(code: KeyCode.character, character: 'o'));
+      app.dispatchKeyEvent(
+          const KeyEvent(code: KeyCode.character, character: 'r'));
+      app.dispatchKeyEvent(
+          const KeyEvent(code: KeyCode.character, character: 'a'));
       expect(controller.text, equals('Termora'));
 
       // Backspace deletes 'a'
@@ -106,7 +111,8 @@ void main() {
 
       // Arrow left moves cursor, then insert 'X'
       app.dispatchKeyEvent(const KeyEvent(code: KeyCode.arrowLeft));
-      app.dispatchKeyEvent(const KeyEvent(code: KeyCode.character, character: 'X'));
+      app.dispatchKeyEvent(
+          const KeyEvent(code: KeyCode.character, character: 'X'));
       expect(controller.text, equals('TermoXr'));
 
       // Submit
@@ -145,7 +151,8 @@ void main() {
   });
 
   group('ProgressBar Widget', () {
-    test('calculates filled and empty glyph segments and formats percentage', () {
+    test('calculates filled and empty glyph segments and formats percentage',
+        () {
       final backend = VirtualTerminalBackend(width: 30, height: 1);
       const bar = ProgressBar(
         value: 0.5,
